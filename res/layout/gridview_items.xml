@@ -14,34 +14,39 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/gridview_item_ccontainer_height"
         android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:background="@color/transparent_black"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/gridview_item_ccontainer_padding_left"
-        android:paddingRight="@dimen/gridview_item_ccontainer_padding_right" >
+        android:gravity="center" >
 
-        <TextView
-            android:id="@+id/gridview_line_one"
-            style="@style/GridViewTextItem"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|fill_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/gridview_item_ccontainer_padding_left"
+            android:paddingRight="@dimen/gridview_item_ccontainer_padding_right" >
 
-        <TextView
-            android:id="@+id/gridview_line_two"
-            style="@style/GridViewTextItem" />
+            <TextView
+                android:id="@+id/gridview_line_one"
+                style="@style/GridViewTextItem"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/gridview_line_two"
+                style="@style/GridViewTextItem" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/peak_two"
+            style="@style/PeakMeter"
+            android:paddingRight="@dimen/peak_meter_two_padding_right" />
+
+        <ImageView
+            android:id="@+id/peak_one"
+            style="@style/PeakMeter"
+            android:paddingRight="@dimen/peak_meter_one_padding_right" />
     </LinearLayout>
-
-    <ImageView
-        android:id="@+id/peak_one"
-        style="@style/PeakMeter"
-        android:layout_alignParentBottom="true"
-        android:paddingBottom="@dimen/peak_meter_padding_bottom"
-        android:paddingRight="@dimen/peak_meter_one_padding_right" />
-
-    <ImageView
-        android:id="@+id/peak_two"
-        style="@style/PeakMeter"
-        android:layout_alignParentBottom="true"
-        android:paddingBottom="@dimen/peak_meter_padding_bottom"
-        android:paddingRight="@dimen/peak_meter_two_padding_right" />
 
 </RelativeLayout>
