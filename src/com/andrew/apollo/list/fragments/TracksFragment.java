@@ -38,6 +38,7 @@ import android.widget.TextView;
 
 import com.andrew.apollo.NowPlayingCursor;
 import com.andrew.apollo.R;
+import com.andrew.apollo.activities.MusicLibrary;
 import com.andrew.apollo.adapters.TrackAdapter;
 import com.andrew.apollo.service.ApolloService;
 import com.andrew.apollo.utils.ApolloUtils;
@@ -125,6 +126,11 @@ public class TracksFragment extends Fragment implements LoaderCallbacks<Cursor>,
         int eight = (int)getActivity().getResources().getDimension(
                 R.dimen.list_separator_padding_left_right);
         mHeader.setPadding(eight, 0, 0, 0);
+
+        // Hide shadow
+        if (getActivity().getClass() != MusicLibrary.class) {
+            root.findViewById(R.id.shadow).setVisibility(View.GONE);
+        }
 
         // Set the header while in @TracksBrowser
         String header = getActivity().getResources().getString(R.string.track_header);

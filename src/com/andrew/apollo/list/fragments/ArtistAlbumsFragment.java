@@ -109,6 +109,9 @@ public class ArtistAlbumsFragment extends Fragment implements LoaderCallbacks<Cu
         int right = getActivity().getResources().getInteger(R.integer.listview_padding_right);
         ApolloUtils.listHeader(this, root, header);
         ApolloUtils.setListPadding(this, mListView, left, 0, right, 0);
+
+        // Hide shadow
+        root.findViewById(R.id.shadow).setVisibility(View.GONE);
         return root;
     }
 
