@@ -97,9 +97,6 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
         // Important!
         whatBundle(icicle);
 
-        // Update the colorstrip color
-        initColorstrip();
-
         // Update the ActionBar
         initActionBar();
 
@@ -207,15 +204,6 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
             bundle.putString(MIME_TYPE, intent.getType());
         }
         mimeType = bundle.getString(MIME_TYPE);
-    }
-
-    /**
-     * For the theme chooser
-     */
-    private void initColorstrip() {
-        FrameLayout mColorstrip = (FrameLayout)findViewById(R.id.colorstrip);
-        mColorstrip.setBackgroundColor(getResources().getColor(R.color.holo_blue_dark));
-        ThemeUtils.setBackgroundColor(this, mColorstrip, "colorstrip");
     }
 
     /**

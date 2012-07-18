@@ -79,9 +79,6 @@ public class AudioPlayerHolder extends FragmentActivity implements ServiceConnec
         // Layout
         setContentView(R.layout.audio_player_browser);
 
-        // Set up the colorstrip
-        initColorstrip();
-
         // Set up the ActionBar
         initActionBar();
 
@@ -281,14 +278,5 @@ public class AudioPlayerHolder extends FragmentActivity implements ServiceConnec
         // Theme chooser
         ThemeUtils.initThemeChooser(this, mViewPager, "viewpager", THEME_ITEM_BACKGROUND);
         ThemeUtils.setMarginDrawable(this, mViewPager, "viewpager_margin");
-    }
-
-    /**
-     * For the theme chooser
-     */
-    private void initColorstrip() {
-        FrameLayout mColorstrip = (FrameLayout)findViewById(R.id.colorstrip);
-        mColorstrip.setBackgroundColor(getResources().getColor(R.color.holo_blue_dark));
-        ThemeUtils.setBackgroundColor(this, mColorstrip, "colorstrip");
     }
 }
