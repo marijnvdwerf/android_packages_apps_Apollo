@@ -160,11 +160,11 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
      * Initiate the BottomActionBar
      */
     private void initBottomActionBar() {
-        PagerAdapter pagerAdatper = new PagerAdapter(getSupportFragmentManager());
-        pagerAdatper.addFragment(new BottomActionBarFragment());
-        pagerAdatper.addFragment(new BottomActionBarControlsFragment());
+        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        pagerAdapter.addFragment(new BottomActionBarFragment());
+        pagerAdapter.addFragment(new BottomActionBarControlsFragment());
         ViewPager viewPager = (ViewPager)findViewById(R.id.bottomActionBarPager);
-        viewPager.setAdapter(pagerAdatper);
+        viewPager.setAdapter(pagerAdapter);
     }
 
     /**
