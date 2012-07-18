@@ -1,4 +1,3 @@
-
 package com.andrew.apollo.adapters;
 
 import java.lang.ref.WeakReference;
@@ -99,6 +98,8 @@ public class ArtistAlbumAdapter extends SimpleCursorAdapter {
         long currentalbumid = MusicUtils.getCurrentAlbumId();
         long albumid = mCursor.getLong(ArtistAlbumsFragment.mAlbumIdIndex);
         if (currentalbumid == albumid) {
+            holderReference.get().mPeakOne.setVisibility(View.VISIBLE);
+            holderReference.get().mPeakTwo.setVisibility(View.VISIBLE);
             holderReference.get().mPeakOne.setImageResource(R.anim.peak_meter_1);
             holderReference.get().mPeakTwo.setImageResource(R.anim.peak_meter_2);
             mPeakOneAnimation = (AnimationDrawable)holderReference.get().mPeakOne.getDrawable();
@@ -116,7 +117,9 @@ public class ArtistAlbumAdapter extends SimpleCursorAdapter {
             }
         } else {
             holderReference.get().mPeakOne.setImageResource(0);
+            holderReference.get().mPeakOne.setVisibility(View.GONE);
             holderReference.get().mPeakTwo.setImageResource(0);
+            holderReference.get().mPeakTwo.setVisibility(View.GONE);
         }
         return view;
     }

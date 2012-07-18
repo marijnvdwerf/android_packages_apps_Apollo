@@ -21,13 +21,8 @@ public class GenreAdapter extends SimpleCursorAdapter {
 
     private WeakReference<ViewHolderList> holderReference;
 
-    private final int left;
-
     public GenreAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
         super(context, layout, c, from, to, flags);
-        // Helps center the text in the Genres tab
-        left = mContext.getResources().getDimensionPixelSize(
-                R.dimen.listview_items_padding_left_top);
     }
 
     /**
@@ -60,10 +55,12 @@ public class GenreAdapter extends SimpleCursorAdapter {
         holderReference.get().mViewHolderLineOne.setText(MusicUtils.parseGenreName(mContext,
                 genreName));
 
-        holderReference.get().mViewHolderLineOne.setPadding(left, 40, 0, 0);
-
         holderReference.get().mViewHolderImage.setVisibility(View.GONE);
         holderReference.get().mViewHolderLineTwo.setVisibility(View.GONE);
+        
+        // Hide peaks
+        holderReference.get().mPeakOne.setVisibility(View.GONE);
+        holderReference.get().mPeakTwo.setVisibility(View.GONE);
 
         holderReference.get().mQuickContext.setOnClickListener(showContextMenu);
         return view;

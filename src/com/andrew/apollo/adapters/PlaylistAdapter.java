@@ -55,12 +55,12 @@ public class PlaylistAdapter extends SimpleCursorAdapter {
         String playlist_name = mCursor.getString(PlaylistsFragment.mPlaylistNameIndex);
         holderReference.get().mViewHolderLineOne.setText(playlist_name);
 
-        // Helps center the text in the Playlist tab
-        int left = mContext.getResources().getDimensionPixelSize(
-                R.dimen.listview_items_padding_left_top);
-        holderReference.get().mViewHolderLineOne.setPadding(left, 40, 0, 0);
-
         holderReference.get().mViewHolderImage.setVisibility(View.GONE);
+        holderReference.get().mViewHolderLineTwo.setVisibility(View.GONE);
+
+        // Hide peaks
+        holderReference.get().mPeakOne.setVisibility(View.GONE);
+        holderReference.get().mPeakTwo.setVisibility(View.GONE);
 
         holderReference.get().mQuickContext.setOnClickListener(showContextMenu);
         return view;
