@@ -4,6 +4,9 @@
 
 package com.andrew.apollo.activities;
 
+import static com.andrew.apollo.Constants.MIME_TYPE;
+import static com.andrew.apollo.Constants.PLAYLIST_RECENTLY_ADDED;
+import static com.andrew.apollo.Constants.THEME_ITEM_BACKGROUND;
 import android.content.ComponentName;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -15,6 +18,8 @@ import android.provider.BaseColumns;
 import android.provider.MediaStore.Audio;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.Window;
 
 import com.andrew.apollo.BottomActionBarControlsFragment;
@@ -31,14 +36,11 @@ import com.andrew.apollo.list.fragments.RecentlyAddedFragment;
 import com.andrew.apollo.list.fragments.TracksFragment;
 import com.andrew.apollo.service.ApolloService;
 import com.andrew.apollo.service.ServiceToken;
+import com.andrew.apollo.ui.widgets.BottomActionBarItem;
 import com.andrew.apollo.ui.widgets.ScrollableTabView;
 import com.andrew.apollo.utils.ApolloUtils;
 import com.andrew.apollo.utils.MusicUtils;
 import com.andrew.apollo.utils.ThemeUtils;
-
-import static com.andrew.apollo.Constants.MIME_TYPE;
-import static com.andrew.apollo.Constants.PLAYLIST_RECENTLY_ADDED;
-import static com.andrew.apollo.Constants.THEME_ITEM_BACKGROUND;
 
 /**
  * @author Andrew Neal
@@ -157,10 +159,24 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
      * Initiate the BottomActionBar
      */
     private void initBottomActionBar() {
-        PagerAdapter pagerAdatper = new PagerAdapter(getSupportFragmentManager());
-        pagerAdatper.addFragment(new BottomActionBarFragment());
-        pagerAdatper.addFragment(new BottomActionBarControlsFragment());
+        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        pagerAdapter.addFragment(new BottomActionBarFragment());
+        pagerAdapter.addFragment(new BottomActionBarControlsFragment());
         ViewPager viewPager = (ViewPager)findViewById(R.id.bottomActionBarPager);
-        viewPager.setAdapter(pagerAdatper);
+        viewPager.setAdapter(pagerAdapter);
+    }
+
+    /**
+     * Respond to a menu press (on devices with a physical menu key)
+     */
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        return BottomActionBarItem.respondToMenuItemClick(item, this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        BottomActionBarItem.inflateMenu(getMenuInflater(), menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
