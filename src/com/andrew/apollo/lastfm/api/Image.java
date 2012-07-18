@@ -53,7 +53,6 @@ public class Image extends ImageHolder {
     }
 
     private static class ImageFactory implements ItemFactory<Image> {
-        @Override
         public Image createItemFromElement(DomElement element) {
             Image i = new Image();
             i.url = element.getChildText("url");

@@ -125,7 +125,6 @@ public class ScrollableTabView extends HorizontalScrollView implements
             }
 
             tab.setOnClickListener(new OnClickListener() {
-                @Override
                 public void onClick(View v) {
                     if (mPager.getCurrentItem() == index) {
                         selectTab(index);
@@ -140,15 +139,12 @@ public class ScrollableTabView extends HorizontalScrollView implements
         selectTab(mPager.getCurrentItem());
     }
 
-    @Override
     public void onPageScrollStateChanged(int state) {
     }
 
-    @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
     }
 
-    @Override
     public void onPageSelected(int position) {
         selectTab(position);
     }

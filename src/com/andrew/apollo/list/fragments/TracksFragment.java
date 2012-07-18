@@ -149,7 +149,6 @@ public class TracksFragment extends Fragment implements LoaderCallbacks<Cursor>,
         return root;
     }
 
-    @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String[] projection = new String[] {
                 BaseColumns._ID, MediaColumns.TITLE, AudioColumns.ALBUM, AudioColumns.ARTIST
@@ -229,7 +228,6 @@ public class TracksFragment extends Fragment implements LoaderCallbacks<Cursor>,
         return new CursorLoader(getActivity(), uri, projection, where.toString(), null, sortOrder);
     }
 
-    @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         // Check for database errors
         if (data == null) {
@@ -272,7 +270,6 @@ public class TracksFragment extends Fragment implements LoaderCallbacks<Cursor>,
         mCursor = data;
     }
 
-    @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         if (mTrackAdapter != null)
             mTrackAdapter.changeCursor(null);
@@ -342,7 +339,6 @@ public class TracksFragment extends Fragment implements LoaderCallbacks<Cursor>,
         return super.onContextItemSelected(item);
     }
 
-    @Override
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         if (mCursor instanceof NowPlayingCursor) {
             if (MusicUtils.mService != null) {
@@ -365,7 +361,6 @@ public class TracksFragment extends Fragment implements LoaderCallbacks<Cursor>,
                 // Scroll to the currently playing track in the queue
                 if (mPlaylistId == PLAYLIST_QUEUE)
                     mListView.postDelayed(new Runnable() {
-                        @Override
                         public void run() {
                             mListView.setSelection(MusicUtils.getQueuePosition());
                         }

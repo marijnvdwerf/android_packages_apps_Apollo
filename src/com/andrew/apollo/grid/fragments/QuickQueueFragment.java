@@ -96,7 +96,6 @@ public class QuickQueueFragment extends Fragment implements LoaderCallbacks<Curs
         return root;
     }
 
-    @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String[] projection = new String[] {
                 BaseColumns._ID, MediaColumns.TITLE, AudioColumns.ALBUM, AudioColumns.ARTIST,
@@ -122,7 +121,6 @@ public class QuickQueueFragment extends Fragment implements LoaderCallbacks<Curs
                 sortOrder);
     }
 
-    @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         // Check for database errors
         if (data == null) {
@@ -137,7 +135,6 @@ public class QuickQueueFragment extends Fragment implements LoaderCallbacks<Curs
         mCursor = data;
     }
 
-    @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         if (mQuickQueueAdapter != null)
             mQuickQueueAdapter.changeCursor(null);
@@ -180,7 +177,6 @@ public class QuickQueueFragment extends Fragment implements LoaderCallbacks<Curs
         return super.onContextItemSelected(item);
     }
 
-    @Override
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         if (mCursor instanceof NowPlayingCursor) {
             if (MusicUtils.mService != null) {
@@ -242,7 +238,6 @@ public class QuickQueueFragment extends Fragment implements LoaderCallbacks<Curs
                 mQuickQueueAdapter.notifyDataSetChanged();
                 // Scroll to the currently playing track in the queue
                 mGridView.postDelayed(new Runnable() {
-                    @Override
                     public void run() {
                         mGridView.setSelection(MusicUtils.getQueuePosition());
                     }

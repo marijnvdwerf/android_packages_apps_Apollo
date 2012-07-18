@@ -81,7 +81,6 @@ public class RecentlyAddedFragment extends Fragment implements LoaderCallbacks<C
         return root;
     }
 
-    @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String[] projection = new String[] {
                 BaseColumns._ID, MediaColumns.TITLE, AudioColumns.ALBUM, AudioColumns.ARTIST
@@ -98,7 +97,6 @@ public class RecentlyAddedFragment extends Fragment implements LoaderCallbacks<C
         return new CursorLoader(getActivity(), uri, projection, where.toString(), null, sortOrder);
     }
 
-    @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         // Check for database errors
         if (data == null) {
@@ -113,7 +111,6 @@ public class RecentlyAddedFragment extends Fragment implements LoaderCallbacks<C
         mCursor = data;
     }
 
-    @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         if (mRecentlyAddedAdapter != null)
             mRecentlyAddedAdapter.changeCursor(null);
@@ -125,7 +122,6 @@ public class RecentlyAddedFragment extends Fragment implements LoaderCallbacks<C
         super.onSaveInstanceState(outState);
     }
 
-    @Override
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         if (mCursor instanceof NowPlayingCursor) {
             if (MusicUtils.mService != null) {

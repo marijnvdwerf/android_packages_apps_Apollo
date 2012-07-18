@@ -100,7 +100,6 @@ public class BottomActionBar extends LinearLayout implements OnClickListener, On
         }
     }
 
-    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bottom_action_bar:
@@ -115,7 +114,6 @@ public class BottomActionBar extends LinearLayout implements OnClickListener, On
 
     }
 
-    @Override
     public boolean onLongClick(View v) {
         Context context = v.getContext();
         context.startActivity(new Intent(context, QuickQueue.class));

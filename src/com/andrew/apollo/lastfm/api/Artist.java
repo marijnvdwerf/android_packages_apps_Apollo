@@ -89,7 +89,6 @@ public class Artist extends MusicEntry {
     }
 
     private static class ArtistFactory implements ItemFactory<Artist> {
-        @Override
         public Artist createItemFromElement(DomElement element) {
             Artist artist = new Artist(null, null);
             MusicEntry.loadStandardInfo(artist, element);

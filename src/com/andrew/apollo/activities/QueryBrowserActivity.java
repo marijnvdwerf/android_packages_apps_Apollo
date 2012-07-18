@@ -79,7 +79,6 @@ public class QueryBrowserActivity extends ListActivity implements ServiceConnect
         // defer the real work until we're bound to the service
     }
 
-    @Override
     public void onServiceConnected(ComponentName name, IBinder service) {
         if (mAdapter != null) {
             getQueryCursor(mAdapter.getQueryHandler(), null);
@@ -177,7 +176,6 @@ public class QueryBrowserActivity extends ListActivity implements ServiceConnect
         emptyness.setVisibility(View.GONE);
     }
 
-    @Override
     public void onServiceDisconnected(ComponentName name) {
 
     }

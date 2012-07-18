@@ -90,12 +90,10 @@ public class AudioPlayerHolder extends FragmentActivity implements ServiceConnec
         super.onCreate(icicle);
     }
 
-    @Override
     public void onServiceConnected(ComponentName name, IBinder obj) {
         MusicUtils.mService = IApolloService.Stub.asInterface(obj);
     }
 
-    @Override
     public void onServiceDisconnected(ComponentName name) {
         MusicUtils.mService = null;
     }

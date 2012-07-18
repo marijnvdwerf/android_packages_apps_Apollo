@@ -114,7 +114,6 @@ public class RepeatingImageButton extends ImageButton {
     }
 
     private final Runnable mRepeater = new Runnable() {
-        @Override
         public void run() {
             doRepeat(false);
             if (isPressed()) {

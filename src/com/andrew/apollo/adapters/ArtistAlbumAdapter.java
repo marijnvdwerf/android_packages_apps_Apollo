@@ -41,7 +41,6 @@ public class ArtistAlbumAdapter extends SimpleCursorAdapter {
      * Used to quickly our the ContextMenu
      */
     private final View.OnClickListener showContextMenu = new View.OnClickListener() {
-        @Override
         public void onClick(View v) {
             v.showContextMenu();
         }

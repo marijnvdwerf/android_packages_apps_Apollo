@@ -86,7 +86,6 @@ public class GenresFragment extends Fragment implements LoaderCallbacks<Cursor>,
         return root;
     }
 
-    @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String[] projection = new String[] {
                 Audio.Genres._ID, Audio.Genres.NAME
@@ -96,7 +95,6 @@ public class GenresFragment extends Fragment implements LoaderCallbacks<Cursor>,
         return new CursorLoader(getActivity(), uri, projection, null, null, sortOrder);
     }
 
-    @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         // Check for database errors
         if (data == null) {
@@ -109,7 +107,6 @@ public class GenresFragment extends Fragment implements LoaderCallbacks<Cursor>,
         mCursor = data;
     }
 
-    @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         if (mGenreAdapter != null)
             mGenreAdapter.changeCursor(null);
@@ -121,7 +118,6 @@ public class GenresFragment extends Fragment implements LoaderCallbacks<Cursor>,
         super.onSaveInstanceState(outState);
     }
 
-    @Override
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         tracksBrowser(position, id);
     }

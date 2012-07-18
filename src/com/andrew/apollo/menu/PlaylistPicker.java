@@ -33,12 +33,10 @@ public class PlaylistPicker extends FragmentActivity implements DialogInterface.
 
     long[] mList = new long[] {};
 
-    @Override
     public void onCancel(DialogInterface dialog) {
         finish();
     }
 
-    @Override
     public void onClick(DialogInterface dialog, int which) {
 
         long listId = Long.valueOf(mAllPlayLists.get(which).get("id"));

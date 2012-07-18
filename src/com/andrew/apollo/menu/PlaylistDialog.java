@@ -64,7 +64,6 @@ public class PlaylistDialog extends FragmentActivity implements TextWatcher,
 
     private final OnClickListener mRenamePlaylistListener = new OnClickListener() {
 
-        @Override
         public void onClick(DialogInterface dialog, int which) {
 
             String name = mPlaylist.getText().toString();
@@ -75,7 +74,6 @@ public class PlaylistDialog extends FragmentActivity implements TextWatcher,
 
     private final OnClickListener mCreatePlaylistListener = new OnClickListener() {
 
-        @Override
         public void onClick(DialogInterface dialog, int which) {
 
             String name = mPlaylist.getText().toString();
@@ -95,19 +93,16 @@ public class PlaylistDialog extends FragmentActivity implements TextWatcher,
         }
     };
 
-    @Override
     public void afterTextChanged(Editable s) {
 
         // don't care about this one
     }
 
-    @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
         // don't care about this one
     }
 
-    @Override
     public void onCancel(DialogInterface dialog) {
 
         if (dialog == mPlaylistDialog) {
@@ -176,7 +171,6 @@ public class PlaylistDialog extends FragmentActivity implements TextWatcher,
             mPlaylistDialog.setButton(Dialog.BUTTON_NEGATIVE, getString(android.R.string.cancel),
                     new OnClickListener() {
 
-                        @Override
                         public void onClick(DialogInterface dialog, int which) {
 
                             finish();
@@ -211,7 +205,6 @@ public class PlaylistDialog extends FragmentActivity implements TextWatcher,
         }
     }
 
-    @Override
     public void onShow(DialogInterface dialog) {
 
         if (dialog == mPlaylistDialog) {
@@ -219,7 +212,6 @@ public class PlaylistDialog extends FragmentActivity implements TextWatcher,
         }
     }
 
-    @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
 
         setSaveButton();

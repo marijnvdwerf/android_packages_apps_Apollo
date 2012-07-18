@@ -117,12 +117,10 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
         super.onSaveInstanceState(outcicle);
     }
 
-    @Override
     public void onServiceConnected(ComponentName name, IBinder obj) {
         MusicUtils.mService = IApolloService.Stub.asInterface(obj);
     }
 
-    @Override
     public void onServiceDisconnected(ComponentName name) {
         MusicUtils.mService = null;
     }
@@ -354,7 +352,6 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
         final ImageView mFirstHalfImage = (ImageView)findViewById(R.id.half_artist_image);
 
         mFirstHalfImage.post(new Runnable() {
-            @Override
             public void run() {
                 // Only download images we don't already have
                 if (ApolloUtils.getImageURL(getArtist(), ARTIST_IMAGE_ORIGINAL, TracksBrowser.this) == null)
@@ -368,7 +365,6 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
 
         mFirstHalfImage.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 System.arraycopy(mHits, 1, mHits, 0, mHits.length - 1);
                 mHits[mHits.length - 1] = SystemClock.uptimeMillis();
@@ -390,7 +386,6 @@ public class TracksBrowser extends FragmentActivity implements ServiceConnection
         final ImageView mSecondHalfImage = (ImageView)findViewById(R.id.half_album_image);
 
         mSecondHalfImage.post(new Runnable() {
-            @Override
             public void run() {
                 // Only download images we don't already have
                 if (ApolloUtils.getImageURL(getAlbum(), ALBUM_IMAGE, TracksBrowser.this) == null)

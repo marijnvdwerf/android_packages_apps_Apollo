@@ -13,13 +13,11 @@ public class PlaylistPickerDialog extends AlertDialog implements OnCancelListene
         super(context);
     }
 
-    @Override
     public void onCancel(DialogInterface dialog) {
         // TODO Auto-generated method stub
 
     }
 
-    @Override
     public void onClick(DialogInterface dialog, int which) {
         // TODO Auto-generated method stub
 

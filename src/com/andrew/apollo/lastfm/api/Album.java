@@ -99,7 +99,6 @@ public class Album extends MusicEntry {
     }
 
     private static class AlbumFactory implements ItemFactory<Album> {
-        @Override
         public Album createItemFromElement(DomElement element) {
             Album album = new Album(null, null, null);
             MusicEntry.loadStandardInfo(album, element);

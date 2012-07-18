@@ -79,12 +79,10 @@ public class SettingsHolder extends PreferenceActivity implements ServiceConnect
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
     public void onServiceConnected(ComponentName name, IBinder obj) {
         MusicUtils.mService = IApolloService.Stub.asInterface(obj);
     }
 
-    @Override
     public void onServiceDisconnected(ComponentName name) {
         MusicUtils.mService = null;
     }
@@ -151,7 +149,6 @@ public class SettingsHolder extends PreferenceActivity implements ServiceConnect
         mAlbumName.setText(MusicUtils.getAlbumName());
 
         view.setOnClickListener(new OnClickListener() {
-            @Override
             public void onClick(View v) {
                 Context context = v.getContext();
                 context.startActivity(new Intent(context, AudioPlayerHolder.class));
@@ -193,7 +190,6 @@ public class SettingsHolder extends PreferenceActivity implements ServiceConnect
         String themePackage = sp.getString(THEME_PACKAGE_NAME, APOLLO);
         ListPreference themeLp = (ListPreference)findPreference(THEME_PACKAGE_NAME);
         themeLp.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-            @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 ThemePreview themePreview = (ThemePreview)findPreference(THEME_PREVIEW);
                 themePreview.setTheme(newValue.toString());

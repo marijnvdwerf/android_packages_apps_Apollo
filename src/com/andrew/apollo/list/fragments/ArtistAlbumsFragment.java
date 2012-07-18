@@ -112,7 +112,6 @@ public class ArtistAlbumsFragment extends Fragment implements LoaderCallbacks<Cu
         return root;
     }
 
-    @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String[] projection = {
                 BaseColumns._ID, AlbumColumns.ALBUM, AlbumColumns.NUMBER_OF_SONGS,
@@ -127,7 +126,6 @@ public class ArtistAlbumsFragment extends Fragment implements LoaderCallbacks<Cu
         return null;
     }
 
-    @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         // Check for database errors
         if (data == null) {
@@ -142,7 +140,6 @@ public class ArtistAlbumsFragment extends Fragment implements LoaderCallbacks<Cu
         mCursor = data;
     }
 
-    @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         if (mArtistAlbumAdapter != null)
             mArtistAlbumAdapter.changeCursor(null);
@@ -154,7 +151,6 @@ public class ArtistAlbumsFragment extends Fragment implements LoaderCallbacks<Cu
         super.onSaveInstanceState(outState);
     }
 
-    @Override
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         tracksBrowser(id);
     }

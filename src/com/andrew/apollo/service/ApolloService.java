@@ -398,7 +398,6 @@ public class ApolloService extends Service {
     };
 
     private final OnAudioFocusChangeListener mAudioFocusListener = new OnAudioFocusChangeListener() {
-        @Override
         public void onAudioFocusChange(int focusChange) {
             mMediaplayerHandler.obtainMessage(FOCUSCHANGE, focusChange, 0).sendToTarget();
         }
@@ -2038,7 +2037,6 @@ public class ApolloService extends Service {
         }
 
         MediaPlayer.OnCompletionListener listener = new MediaPlayer.OnCompletionListener() {
-            @Override
             public void onCompletion(MediaPlayer mp) {
                 // Acquire a temporary wakelock, since when we return from
                 // this callback the MediaPlayer will release its wakelock
@@ -2052,7 +2050,6 @@ public class ApolloService extends Service {
         };
 
         MediaPlayer.OnErrorListener errorListener = new MediaPlayer.OnErrorListener() {
-            @Override
             public boolean onError(MediaPlayer mp, int what, int extra) {
                 switch (what) {
                     case MediaPlayer.MEDIA_ERROR_SERVER_DIED:
@@ -2114,172 +2111,138 @@ public class ApolloService extends Service {
             mService = new WeakReference<ApolloService>(service);
         }
 
-        @Override
         public void openFile(String path) {
             mService.get().open(path);
         }
 
-        @Override
         public void open(long[] list, int position) {
             mService.get().open(list, position);
         }
 
-        @Override
         public int getQueuePosition() {
             return mService.get().getQueuePosition();
         }
 
-        @Override
         public void setQueuePosition(int index) {
             mService.get().setQueuePosition(index);
         }
 
-        @Override
         public boolean isPlaying() {
             return mService.get().isPlaying();
         }
 
-        @Override
         public void stop() {
             mService.get().stop();
         }
 
-        @Override
         public void pause() {
             mService.get().pause();
         }
 
-        @Override
         public void play() {
             mService.get().play();
         }
 
-        @Override
         public void prev() {
             mService.get().prev();
         }
 
-        @Override
         public void next() {
             mService.get().next(true);
         }
 
-        @Override
         public String getTrackName() {
             return mService.get().getTrackName();
         }
 
-        @Override
         public String getAlbumName() {
             return mService.get().getAlbumName();
         }
 
-        @Override
         public long getAlbumId() {
             return mService.get().getAlbumId();
         }
 
-        @Override
         public String getArtistName() {
             return mService.get().getArtistName();
         }
 
-        @Override
         public long getArtistId() {
             return mService.get().getArtistId();
         }
 
-        @Override
         public void enqueue(long[] list, int action) {
             mService.get().enqueue(list, action);
         }
 
-        @Override
         public long[] getQueue() {
             return mService.get().getQueue();
         }
 
-        @Override
         public String getPath() {
             return mService.get().getPath();
         }
 
-        @Override
         public long getAudioId() {
             return mService.get().getAudioId();
         }
 
-        @Override
         public long position() {
             return mService.get().position();
         }
 
-        @Override
         public long duration() {
             return mService.get().duration();
         }
 
-        @Override
         public long seek(long pos) {
             return mService.get().seek(pos);
         }
 
-        @Override
         public void setShuffleMode(int shufflemode) {
             mService.get().setShuffleMode(shufflemode);
         }
 
-        @Override
         public int getShuffleMode() {
             return mService.get().getShuffleMode();
         }
 
-        @Override
         public int removeTracks(int first, int last) {
             return mService.get().removeTracks(first, last);
         }
 
-        @Override
         public int removeTrack(long id) {
             return mService.get().removeTrack(id);
         }
 
-        @Override
         public void setRepeatMode(int repeatmode) {
             mService.get().setRepeatMode(repeatmode);
         }
 
-        @Override
         public int getRepeatMode() {
             return mService.get().getRepeatMode();
         }
 
-        @Override
         public int getMediaMountedCount() {
             return mService.get().getMediaMountedCount();
         }
 
-        @Override
         public int getAudioSessionId() {
             return mService.get().getAudioSessionId();
         }
 
-        @Override
         public void addToFavorites(long id) throws RemoteException {
             mService.get().addToFavorites(id);
         }
 
-        @Override
         public void removeFromFavorites(long id) throws RemoteException {
             mService.get().removeFromFavorites(id);
         }
 
-        @Override
         public boolean isFavorite(long id) throws RemoteException {
             return mService.get().isFavorite(id);
         }
 
-        @Override
         public void toggleFavorite() throws RemoteException {
             mService.get().toggleFavorite();
         }

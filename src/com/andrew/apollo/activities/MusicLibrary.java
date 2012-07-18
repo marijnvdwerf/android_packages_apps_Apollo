@@ -74,12 +74,10 @@ public class MusicLibrary extends FragmentActivity implements ServiceConnection 
         super.onCreate(icicle);
     }
 
-    @Override
     public void onServiceConnected(ComponentName name, IBinder obj) {
         MusicUtils.mService = IApolloService.Stub.asInterface(obj);
     }
 
-    @Override
     public void onServiceDisconnected(ComponentName name) {
         MusicUtils.mService = null;
     }

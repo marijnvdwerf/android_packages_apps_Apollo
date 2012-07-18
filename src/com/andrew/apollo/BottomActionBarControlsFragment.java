@@ -43,7 +43,6 @@ public class BottomActionBarControlsFragment extends Fragment {
         mRepeat = (ImageButton)root.findViewById(R.id.bottom_action_bar_repeat);
         mRepeat.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 cycleRepeat();
             }
@@ -52,7 +51,6 @@ public class BottomActionBarControlsFragment extends Fragment {
         mPrev = (ImageButton)root.findViewById(R.id.bottom_action_bar_previous);
         mPrev.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 if (MusicUtils.mService == null)
                     return;
@@ -72,7 +70,6 @@ public class BottomActionBarControlsFragment extends Fragment {
         mPlay = (ImageButton)root.findViewById(R.id.bottom_action_bar_play);
         mPlay.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 doPauseResume();
             }
@@ -81,7 +78,6 @@ public class BottomActionBarControlsFragment extends Fragment {
         mNext = (ImageButton)root.findViewById(R.id.bottom_action_bar_next);
         mNext.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 if (MusicUtils.mService == null)
                     return;
@@ -96,7 +92,6 @@ public class BottomActionBarControlsFragment extends Fragment {
         mShuffle = (ImageButton)root.findViewById(R.id.bottom_action_bar_shuffle);
         mShuffle.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 toggleShuffle();
             }

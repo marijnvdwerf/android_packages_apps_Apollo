@@ -17,7 +17,6 @@ public class ScrollingTabsAdapter implements TabAdapter {
         activity = act;
     }
 
-    @Override
     public View getView(int position) {
         LayoutInflater inflater = activity.getLayoutInflater();
         final Button tab = (Button)inflater.inflate(R.layout.tabs, null);

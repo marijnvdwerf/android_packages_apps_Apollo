@@ -83,7 +83,6 @@ public class AudioPlayerFragment extends Fragment {
         mTrackName = (TextView)root.findViewById(R.id.audio_player_track);
         mTrackName.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 tracksBrowser();
             }
@@ -91,7 +90,6 @@ public class AudioPlayerFragment extends Fragment {
         mAlbumArtistName = (TextView)root.findViewById(R.id.audio_player_album_artist);
         mAlbumArtistName.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 tracksBrowserArtist();
             }
@@ -110,7 +108,6 @@ public class AudioPlayerFragment extends Fragment {
 
         mRepeat.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 cycleRepeat();
             }
@@ -119,7 +116,6 @@ public class AudioPlayerFragment extends Fragment {
         mPrev.setRepeatListener(mRewListener, 260);
         mPrev.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 if (MusicUtils.mService == null)
                     return;
@@ -138,7 +134,6 @@ public class AudioPlayerFragment extends Fragment {
 
         mPlay.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 doPauseResume();
             }
@@ -147,7 +142,6 @@ public class AudioPlayerFragment extends Fragment {
         mNext.setRepeatListener(mFfwdListener, 260);
         mNext.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 if (MusicUtils.mService == null)
                     return;
@@ -161,7 +155,6 @@ public class AudioPlayerFragment extends Fragment {
 
         mShuffle.setOnClickListener(new OnClickListener() {
 
-            @Override
             public void onClick(View v) {
                 toggleShuffle();
             }
@@ -249,7 +242,6 @@ public class AudioPlayerFragment extends Fragment {
      * Scan backwards
      */
     private final RepeatingImageButton.RepeatListener mRewListener = new RepeatingImageButton.RepeatListener() {
-        @Override
         public void onRepeat(View v, long howlong, int repcnt) {
             scanBackward(repcnt, howlong);
         }
@@ -278,7 +270,6 @@ public class AudioPlayerFragment extends Fragment {
      * Scan forwards
      */
     private final RepeatingImageButton.RepeatListener mFfwdListener = new RepeatingImageButton.RepeatListener() {
-        @Override
         public void onRepeat(View v, long howlong, int repcnt) {
             scanForward(repcnt, howlong);
         }
@@ -493,13 +484,11 @@ public class AudioPlayerFragment extends Fragment {
      * Drag to a specfic duration
      */
     private final OnSeekBarChangeListener mSeekListener = new OnSeekBarChangeListener() {
-        @Override
         public void onStartTrackingTouch(SeekBar bar) {
             mLastSeekEventTime = 0;
             mFromTouch = true;
         }
 
-        @Override
         public void onProgressChanged(SeekBar bar, int progress, boolean fromuser) {
             if (!fromuser || (MusicUtils.mService == null))
                 return;
@@ -520,7 +509,6 @@ public class AudioPlayerFragment extends Fragment {
             }
         }
 
-        @Override
         public void onStopTrackingTouch(SeekBar bar) {
             mPosOverride = -1;
             mFromTouch = false;
