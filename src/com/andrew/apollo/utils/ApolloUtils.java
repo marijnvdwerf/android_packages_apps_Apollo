@@ -82,7 +82,8 @@ public class ApolloUtils {
 
     /**
      * @param view
-     * @param bitmap This is to avoid Bitmap's IllegalArgumentException
+     * @param bitmap
+     *            This is to avoid Bitmap's IllegalArgumentException
      */
     public static void runnableBackground(final ImageView view, final Bitmap bitmap) {
         view.post(new Runnable() {
@@ -218,11 +219,9 @@ public class ApolloUtils {
         if (fragment.getArguments() != null) {
             String mimetype = fragment.getArguments().getString(MIME_TYPE);
             if (Audio.Albums.CONTENT_TYPE.equals(mimetype)) {
-                mListView.setPadding(AQUtility.dip2pixel(fragment.getActivity(), left), top,
-                        AQUtility.dip2pixel(fragment.getActivity(), right), bottom);
+                mListView.setPadding(left, top, right, bottom);
             } else if (Audio.Artists.CONTENT_TYPE.equals(mimetype)) {
-                mListView.setPadding(AQUtility.dip2pixel(fragment.getActivity(), left), top,
-                        AQUtility.dip2pixel(fragment.getActivity(), right), bottom);
+                mListView.setPadding(left, top, right, bottom);
             }
         }
     }

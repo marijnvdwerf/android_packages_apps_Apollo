@@ -32,7 +32,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -134,10 +133,10 @@ public class TracksFragment extends Fragment implements LoaderCallbacks<Cursor>,
 
         // Set the header while in @TracksBrowser
         String header = getActivity().getResources().getString(R.string.track_header);
-        int left = getActivity().getResources().getInteger(R.integer.listview_padding_left);
-        int right = getActivity().getResources().getInteger(R.integer.listview_padding_right);
+        int sidePadding = getActivity().getResources().getDimensionPixelSize(
+                R.dimen.listview_padding_side);
         ApolloUtils.listHeader(this, root, header);
-        ApolloUtils.setListPadding(this, mListView, left, 0, right, 0);
+        ApolloUtils.setListPadding(this, mListView, sidePadding, 0, sidePadding, 0);
 
         // Hide the extra spacing from the Bottom ActionBar in the queue
         // Fragment in @AudioPlayerHolder
@@ -147,8 +146,7 @@ public class TracksFragment extends Fragment implements LoaderCallbacks<Cursor>,
             if (Audio.Playlists.CONTENT_TYPE.equals(mimeType)) {
                 switch ((int)mPlaylistId) {
                     case (int)PLAYLIST_QUEUE:
-                        LinearLayout emptyness = (LinearLayout)root.findViewById(R.id.empty_view);
-                        emptyness.setVisibility(View.GONE);
+                        root.findViewById(R.id.empty_view).setVisibility(View.GONE);
                 }
             }
         }

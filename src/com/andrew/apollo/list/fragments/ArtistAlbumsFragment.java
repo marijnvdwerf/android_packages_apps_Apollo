@@ -105,10 +105,10 @@ public class ArtistAlbumsFragment extends Fragment implements LoaderCallbacks<Cu
 
         // Set the header for @TrackBrowser
         String header = getActivity().getResources().getString(R.string.album_header);
-        int left = getActivity().getResources().getInteger(R.integer.listview_padding_left);
-        int right = getActivity().getResources().getInteger(R.integer.listview_padding_right);
+        int sidePadding = getActivity().getResources().getDimensionPixelSize(
+                R.dimen.listview_padding_side);
         ApolloUtils.listHeader(this, root, header);
-        ApolloUtils.setListPadding(this, mListView, left, 0, right, 0);
+        ApolloUtils.setListPadding(this, mListView, sidePadding, 0, sidePadding, 0);
 
         // Hide shadow
         root.findViewById(R.id.shadow).setVisibility(View.GONE);
